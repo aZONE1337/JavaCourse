@@ -10,6 +10,33 @@ public class Employee implements Serializable{
     int salary;
     int infoId;
 
+    public Employee() {
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPost(String post) {
+        this.post = post;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public void setInfoId(int infoId) {
+        this.infoId = infoId;
+    }
+
     public int getId() {
         return id;
     }
@@ -44,10 +71,20 @@ public class Employee implements Serializable{
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Employee another = (Employee)obj;
+        return another.id == this.id && another.age == this.age && another.salary == this.salary
+                && another.infoId == this.infoId && another.name.equals(this.name) && another.post.equals(this.post);
+    }
+
+        @Override
     public String toString() {
-        return "Employee: name=" + name +
-                ", post=" + post +
-                ", age=" + age +
-                ", salary=" + salary;
+        return id + "," + name + "," + post  + "," + age  + "," + salary;
     }
 }

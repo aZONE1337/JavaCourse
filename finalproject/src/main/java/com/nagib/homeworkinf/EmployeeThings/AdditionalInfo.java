@@ -27,7 +27,6 @@ public class AdditionalInfo implements Serializable {
 
     @Override
     public String toString() {
-        return ", phone=" + phone +
-                ", address=" + address + ".\n";
+        return "," + phone + "," + address;
     }
 }
